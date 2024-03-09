@@ -3,6 +3,8 @@
 * Inheritance
 * Polymorphism
 * Composition
+* Encapsulation
+* Abstraction
 
 ## header file
 
