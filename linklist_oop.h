@@ -28,10 +28,10 @@ public:
     void createNode(int);
     virtual void insertNode(int);
     void deleteNode(int);
-    void printNode();
+    std::string toString();
     Node *getHead();
     void setHead(Node*);
-
+    friend std::ostream &operator<<(std::ostream &, Linklist *list);
 };
 
 class Sorted : public Linklist

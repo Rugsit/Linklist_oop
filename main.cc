@@ -13,8 +13,8 @@ int main()
         list1->insertNode(i);
         list2->insertNode(i);
     }
-    list1->printNode();
-    list2->printNode();
+    cout << list1 << endl;
+    cout << list2 << endl;
     delete list1;
     delete list2;
     return 0;

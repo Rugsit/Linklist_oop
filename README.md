@@ -39,10 +39,10 @@ public:
     void createNode(int);
     virtual void insertNode(int);
     void deleteNode(int);
-    void printNode();
+    std::string toString();
     Node *getHead();
     void setHead(Node*);
-
+    friend std::ostream &operator<<(std::ostream &, Linklist *list);
 };
 
 class Sorted : public Linklist
@@ -129,15 +129,23 @@ void Linklist::deleteNode(int data)
         prev = curr;
     }
 }
-void Linklist::printNode()
+string Linklist::toString()
 {
+    string s = "";
     for(Node *iter = head; iter; iter = iter->getNext())
     {
-        cout << iter->getData() << " --> ";
+        s += to_string(iter->getData()) + " --> "; 
     }
+    return s;
 }
 Node *Linklist::getHead() {return head;}
 void Linklist::setHead(Node *newhead) {head = newhead;}
+
+ostream &operator<<(ostream &output, Linklist *list)
+{
+    output << list->toString();
+    return output;
+}
 
 
 
@@ -193,8 +201,8 @@ int main()
         list1->insertNode(i);
         list2->insertNode(i);
     }
-    list1->printNode();
-    list2->printNode();
+    cout << list1 << endl;
+    cout << list2 << endl;
     delete list1;
     delete list2;
     return 0;

@@ -57,14 +57,22 @@ void Linklist::deleteNode(int data)
         prev = curr;
     }
 }
-void Linklist::printNode()
+string Linklist::toString()
 {
+    string s = "";
     for(Node *iter = head; iter; iter = iter->getNext())
     {
-        cout << iter->getData() << " --> ";
+        s += to_string(iter->getData()) + " --> "; 
     }
+    return s;
 }
 Node *Linklist::getHead() {return head;}
 void Linklist::setHead(Node *newhead) {head = newhead;}
+
+ostream &operator<<(ostream &output, Linklist *list)
+{
+    output << list->toString();
+    return output;
+}
 
 
